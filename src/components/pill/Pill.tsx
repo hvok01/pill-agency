@@ -28,8 +28,8 @@ export default function Pill(props: {color: string[]}) {
         mesh.current.rotation.z += 0.01
     })
 
-    const materials = useLoader(MTLLoader, `src/assets/pill.mtl`);
-    const obj = useLoader(OBJLoader, 'src/assets/pill.obj', (loader) => {
+    const materials = useLoader(MTLLoader, './pill.mtl');
+    const obj = useLoader(OBJLoader, './pill.obj', (loader) => {
       materials.preload();
       loader.setMaterials(materials);
     });
