@@ -9,11 +9,16 @@ export default function Pill(props: {color: string[]}) {
     const mesh = useRef<Mesh>(null!)
 
     useLayoutEffect(() => {
-        mesh.current.children[0].material[0].color = {
-            r: color[0],
-            g: color[1],
-            b: color[2],
-            isColor: true,
+        if (mesh.current.children[0]) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const meshCurrentChildren: any = mesh.current.children[0];
+            
+            meshCurrentChildren.material[0].color = {
+                r: color[0],
+                g: color[1],
+                b: color[2],
+                isColor: true,
+            }
         }
     }, [color])
 
